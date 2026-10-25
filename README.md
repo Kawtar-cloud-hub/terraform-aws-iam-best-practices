@@ -27,10 +27,15 @@ This code accompanies the detailed guide published on **Kawtar Cloud Hub**:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git](https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git)
+   git clone https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git
    cd terraform-aws-iam-best-practices
+1. Initialize Terraform:
 terraform init
+2. Validate Configuration:
 terraform validate
+4. Review Execution Plan:
 terraform plan
+5. Apply Changes:
 terraform apply
+6. Clean Up Resources:
 terraform destroy
