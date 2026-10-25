@@ -27,8 +27,8 @@ This code accompanies the detailed guide published on **Kawtar Cloud Hub**:
 
 1. **Clone the repository:**
    ```bash
-git clone https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git
-cd terraform-aws-iam-best-practices
+   git clone [https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git](https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git)
+   cd terraform-aws-iam-best-practices
 terraform init
 terraform validate
 terraform plan
