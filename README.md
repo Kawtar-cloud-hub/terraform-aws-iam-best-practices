@@ -1,41 +1,38 @@
-# AWS IAM Security Best Practices with Terraform
+# AWS IAM Security Best Practices: Managing Users, Roles, and Policies with Terraform
 
-This repository demonstrates how to manage AWS IAM Users, Roles, and Custom Policies programmatically using Terraform while following the **Principle of Least Privilege (PoLP)**.
-
-This code accompanies the detailed guide published on **Kawtar Cloud Hub**:
-📖 **[Read the Full Step-by-Step Article](https://kawtarcloud.com/aws-iam-security-best-practices-managing-users-roles-and-policies-with-terraform/)**
+This repository contains Infrastructure as Code (IaC) scripts using Terraform to implement AWS IAM security best practices. It demonstrates how to programmatically manage users, roles, and policies while enforcing the Principle of Least Privilege and eliminating hardcoded account details.
 
 ---
 
-## 🏗️ Project Structure
+## 🔒 Security Best Practices
 
-* `main.tf` - AWS Provider configuration.
-* `variables.tf` - Configurable variables for region and IAM user name.
-* `iam.tf` - IAM User creation, S3 Read-Only Policy definition, and attachment.
-* `outputs.tf` - Output metadata (User Name and Policy ARN).
+> **Security Note:**  
+> We use the `aws_caller_identity` data source to dynamically fetch account details instead of hardcoding sensitive IDs. This ensures the codebase is 100% safe for public repositories and automated deployment pipelines.
 
 ---
 
-## 🚀 Quick Start Guide
+## 🏗️ Architecture & Resources
+
+This configuration provisions the following AWS IAM resources:
+* **Dynamic Account Context:** Uses `aws_caller_identity` to fetch the current AWS Account ID dynamically.
+* **IAM User:** Programmatically provisions managed developer users.
+* **IAM Policy:** Enforces least privilege with restricted S3 read-only permissions.
+* **Policy Attachment:** Securely binds permissions directly to IAM users and roles.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-1. An active **AWS Account**.
-2. **Terraform CLI** installed.
-3. **AWS CLI** configured with access keys (`aws configure`).
+* [Terraform](https://www.terraform.io/downloads) (v1.0+)
+* [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate administrative access.
 
-### Execution Steps
+### Deployment Steps
 
-1. **Clone the repository:**
+1. **Initialize the Terraform working directory:**
    ```bash
-   git clone https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git https://github.com/Kawtar-cloud-hub/terraform-aws-iam-best-practices.git
-   cd terraform-aws-iam-best-practices
-1. Initialize Terraform:
-terraform init
-2. Validate Configuration:
-terraform validate
-4. Review Execution Plan:
-terraform plan
-5. Apply Changes:
-terraform apply
-6. Clean Up Resources:
-terraform destroy
+   terraform init
+   terraform plan
+   terraform apply
+   terraform destroy
+   
