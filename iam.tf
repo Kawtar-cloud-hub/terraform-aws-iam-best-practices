@@ -1,4 +1,7 @@
-# Create an IAM User
+# Fetch current AWS account details dynamically
+data "aws_caller_identity" "current" {}
+
+# Create IAM User
 resource "aws_iam_user" "dev_user" {
   name = var.developer_name
   tags = {
@@ -7,7 +10,7 @@ resource "aws_iam_user" "dev_user" {
   }
 }
 
-# Define a Restricted IAM Policy (Read-Only S3 Access)
+# Define Restricted IAM Policy (S3 Read-Only)
 resource "aws_iam_policy" "s3_read_only" {
   name        = "S3ReadOnlyRestrictedPolicy"
   path        = "/"
